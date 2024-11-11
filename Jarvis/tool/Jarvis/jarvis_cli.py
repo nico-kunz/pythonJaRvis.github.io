@@ -63,7 +63,8 @@ def main():
     cg = CallGraphGenerator(args.module, args.package, decy=args.decy,precision=args.precision, moduleEntry=args.entry_point)
     cg.analyze()
 
-    formatter = formats.Simple(cg)
+    formatter = formats.Fasten(cg, args.package, args.module, 1, 1, 1)
+    #formatter = formats.Fasten(cg, args.package, args.product, args.forge, args.version, args.timestamp)
     output = formatter.generate()
     # if args.operation == CALL_GRAPH_OP:
     #     if args.fasten:
